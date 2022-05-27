@@ -19,6 +19,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ github.token }}
+          event-type: semantic
+          
       # Runs a set of commands using the runners shell
       - name: dispatch
         run: curl --location --request POST 'https://api.github.com/repos/mBlomsterberg/DevOps-testing/dispatches' \
