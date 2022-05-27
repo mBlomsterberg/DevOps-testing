@@ -21,8 +21,12 @@ jobs:
           
       # Runs a set of commands using the runners shell
       - name: dispatch
-        run: curl \
-                -H 'Authorization:token ${{ secrets.GITHUB_TOKEN }}' \
-                -H 'Accept:application/vnd.github.v3+json' \
-                -H 'Content-Type:application/json' \
-                'https://api.github.com/repos/mBlomsterberg/DevOps-testing/actions/workflows'
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/actions/workflows/dispatches \
+          --header 'authorization: token ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "event_type": "semantic"
+            }' \
+          --fail
