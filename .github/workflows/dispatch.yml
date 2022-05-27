@@ -27,4 +27,4 @@ jobs:
                 -H 'Accept:application/vnd.github.v3+json' \
                 -H 'Content-Type:application/json' \
                 'https://api.github.com/repos/mBlomsterberg/DevOps-testing/dispatches' \
-                -d '{"event_type":"semantic"}'
+                --data-raw '{"event_type":"semantic"}'
