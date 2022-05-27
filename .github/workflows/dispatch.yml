@@ -22,7 +22,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: dispatch
         run: curl --location --request POST 'https://api.github.com/repos/mBlomsterberg/DevOps-testing/dispatches' \
-                --header 'Authorization:token ${{ github.token }}'
+                --header 'Authorization:token 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'
                 --header 'Accept:application/vnd.github.v3+json' \
                 --header 'Content-Type:application/json' \
                 --data-raw '{"event_type":"semantic"}'
