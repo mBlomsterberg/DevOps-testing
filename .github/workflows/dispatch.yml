@@ -22,7 +22,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: dispatch
         run: curl \
-                -X GET \
                 -H 'Authorization:token ${{github.token}}' \
                 -H 'Accept:application/vnd.github.v3+json' \
                 -H 'Content-Type:application/json' \
