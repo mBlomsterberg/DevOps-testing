@@ -23,7 +23,7 @@ jobs:
       - name: dispatch
         run: curl \
                 -X POST \
-                -H 'Authorization:token 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' \
+                -H 'Authorization:token ${{github.token}}' \
                 -H 'Accept:application/vnd.github.v3+json' \
                 -H 'Content-Type:application/json' \
                 'https://api.github.com/repos/mBlomsterberg/DevOps-testing/dispatches' \
