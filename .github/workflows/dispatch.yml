@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Dispatcher
+name: dispatcher
 
 # Controls when the workflow will run
 on:
@@ -21,8 +21,8 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: dispatch
-        run: curl -X POST \
-             -H "Accept:application/vnd.github.v3+json" \
-             -H 'Authorization:token ${{ github.token }}' \
-             'https://api.github.com/repos/mBlomsterberg/DevOps-testing/dispatches' \
-             -d '{"event_type":"semantic"}'
+        run: curl --location --request POST 'https://api.github.com/repos/mBlomsterberg/DevOps-testing/dispatches' \
+                --header 'Authorization:token ${{ github.token }}'
+                --header 'Accept:application/vnd.github.v3+json' \
+                --header 'Content-Type:application/json' \
+                --data-raw '{"event_type":"semantic"}'
